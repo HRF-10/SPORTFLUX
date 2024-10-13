@@ -1,0 +1,65 @@
+.slide-inner-wrapper {
+    height: calc(100vh);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+h1 {
+    font-size: 28px;
+    width: 260px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    @media (min-width: 700px) {
+        margin: 15px auto;
+    }
+}
+
+.text-wrapper, .slide-footer, ion-grid {
+    margin: auto;
+    width: calc(100vw - 50px);
+
+    ion-text {
+        font-size: 14px;
+        font-weight: 300;
+    }
+}
+
+ion-slides {
+    --bullet-background-active: #117fba;
+}
+
+.slide-body {
+    width: 100vw;
+}
+
+.slide-footer {
+    padding-bottom: 10px;
+}
+
+.ion-color-primary-gradient {
+    --ion-color-base: #117fba !important;
+    --ion-color-contrast: var(--ion-text-color) !important;
+    --box-shadow: -5px 5px 19px #c7c7c7, 5px -5px 19px #ffffff;
+}
+
+img {
+    height: auto; // Menjamin tinggi otomatis
+
+    @media (min-width: 700px) {
+        height: 300px;
+    }
+    
+    @media (max-height: 800px) {
+        height: 280px;
+    }
+    
+    @media (max-width: 370px) {
+        height: 280px;
+    }
+    
+    @media (max-width: 360px) {
+        height: 220px;
+    }
+}

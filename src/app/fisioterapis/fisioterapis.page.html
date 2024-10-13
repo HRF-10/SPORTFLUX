@@ -1,0 +1,89 @@
+<ion-content
+  style="
+    --background: radial-gradient(
+      circle at 10% 20%,
+      rgb(149, 219, 254) 0%,
+      rgb(7, 134, 197) 90.1%
+    );
+    z-index: 10;
+  "
+>
+  <ion-toolbar>
+    <div class="search-bar-container">
+      <ion-searchbar
+        placeholder="Fisioterapis Ortopedi"
+        [(ngModel)]="searchTerm"
+        (ionInput)="searchTerm = $event.target.value"
+        style="width: 85%; --placeholder-color: gray; --color: #fff"
+      >
+      </ion-searchbar>
+      <!-- Tombol options (filter) di sebelah kanan search bar -->
+      <ion-buttons slot="end">
+        <ion-button class="filter-button">
+          <ion-icon name="apps"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+    <!-- Bagian Suggestion -->
+    <div class="suggestion-container">
+      <span class="suggestion-label">Suggestion:</span>
+      <ion-chip>
+        <ion-label>Manual</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <ion-label>Fisio Neurologis</ion-label>
+      </ion-chip>
+    </div>
+  </ion-toolbar>
+
+  <!-- Bagian Rekomendasi -->
+  <div class="recommendation" *ngIf="recommendedUser">
+    <ion-card style="--background: rgba(0, 0, 0, 0.482)">
+      <ion-card-header style="--background: rgba(0, 0, 0, 0.0)">
+        <ion-card-title style="font-weight: bold; color: white;">Recommendation</ion-card-title>
+      </ion-card-header>
+      <ion-card-content (click)="openChat(recommendedUser)">
+        <ion-item class="avatar-background" style="background-color: rgba(0, 0, 0, 0.482); --inner-border-width: 0;">
+          <ion-avatar slot="start"></ion-avatar>
+          <ion-label>
+            <h2>Fisioterapis Ortopedi</h2>
+            <p>{{ recommendedUser.name }}</p>
+            <p style="display: flex;">
+              <img src="../../assets/master_file/bone.png" class="icon-image"> Ortopedi
+            </p>
+            <p style="display: flex;">
+              <img src="../../assets/master_file/placeholder.png" class="icon-image-2"> {{ recommendedUser.city || 'Kota tidak tersedia' }}
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Bagian Daftar Pelatih -->
+  <div class="trainer">
+    <h3>Physiotherapist List</h3>
+  </div>
+
+  <div class="activity" *ngIf="filteredUsers.length > 0">
+    <ion-card-content *ngFor="let user of filteredUsers">
+      <ion-item class="avatar-background" style="background-color: rgba(0, 0, 0, 0.482); --inner-border-width: 0;" (click)="openChat(user)">
+        <ion-avatar slot="start"></ion-avatar>  
+        <ion-label>
+          <h2>Fisioterapis Ortopedi</h2>
+          <p>{{ user.name }}</p>
+          <p style="display: flex;">
+            <img src="../../assets/master_file/bone.png" class="icon-image"> Ortopedi
+          </p>
+          <p style="display: flex;">
+            <img src="../../assets/master_file/placeholder.png" class="icon-image-2"> {{ user.city || 'Kota tidak tersedia' }}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </div>
+
+  <div *ngIf="filteredUsers.length === 0">
+    <p>Tidak ada fisioterapis yang tersedia.</p>
+  </div>
+</ion-content>

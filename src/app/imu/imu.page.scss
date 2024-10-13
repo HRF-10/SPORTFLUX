@@ -1,0 +1,97 @@
+.balance {
+    background-color: #1b263b;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    margin-top: 90px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .balance .amount {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  
+  .transaction {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transaction .details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .transaction .details .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .transaction .details .info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .transaction .details .info .type {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .transaction .details .info .date {
+    font-size: 12px;
+    color: #6c757d;
+  }
+  
+  .transaction .amount {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .transaction.received{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transaction.received .icon {
+    background-color: #d4edda;
+    color: #28a745;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .transaction.sent .icon {
+    background-color: #f8d7da;
+    color: #E0115F;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .transaction.axel .icon {
+    background-color: #FFF6CC;
+    color: #ffb100;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .activity2{
+    margin-top: 20px;
+  }
+
+  
+  .activity3{
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }

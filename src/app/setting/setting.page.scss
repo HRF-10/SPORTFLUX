@@ -1,0 +1,226 @@
+@keyframes grow {
+    from {
+      width: 0%
+    }
+    to {
+      width: 100%;
+    }
+  }
+  html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+  body {
+    background: #26323D;
+    background-image: radial-gradient(transparent 65%, rgba(black, 0.3));
+    font-family: sans-serif;
+  }
+  #container {
+  
+    width: 38vw;
+   
+  
+  
+    
+  }
+
+
+  .icon-inner, .ionicon, svg{
+    color : black; 
+    background : transparent;
+  }
+
+  
+  input {
+    display: none;
+    
+  }
+  label {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 40px;
+    background: transparent;
+  
+    overflow: hidden;
+    box-shadow: -2px 0 8px 0 rgba(white, 0.6);
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to bottom, #A3E2EF 35%, #4F9CC0);
+      height: 100%;
+      width: 0%;
+      animation: grow 2s forwards;
+      box-shadow: 0 0 8px 1px white inset;
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url(https://media0.giphy.com/media/3oxHQryzE4MqLlRFBu/giphy.gif);
+        mix-blend-mode: overlay;
+        opacity: 0.5;
+      }
+    }
+  }
+  span {
+    display: inline-block;
+    color: #4F9CC0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 0.7rem;
+    &:last-child {
+      float: right;
+    }
+  }
+  
+  .icon{
+    animation: flash 2s linear infinite;
+  }
+  
+  
+  
+  
+  @keyframes flash {
+    0% {
+      opacity: 1;
+    }
+  
+    50% {
+      opacity: 0;
+    }
+    
+    
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* ------ Default Style ---------- */
+  .gauge-container {
+    width: 150px;
+    height: 150px;
+  
+  
+  
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  ion-row {
+    text-align: center;
+    }
+  
+  
+    .card {
+  
+      margin: 20px auto;
+      display : block;
+  
+    }
+  
+  
+    .card2 {
+  
+      margin: 5px auto;
+      display : block;
+  
+    }
+  
+    @keyframes loader {
+  
+      0% {
+        width: 0;
+      }
+    
+      20% {
+        width: 10%;
+      }
+    
+      25% {
+        width: 24%;
+      }
+    
+      43% {
+        width: 41%;
+      }
+    
+      56% {
+        width: 50%;
+      }
+    
+      66% {
+        width: 52%;
+      }
+    
+      71% {
+        width: 60%;
+      }
+    
+      75% {
+        width: 76%;
+        
+      }
+    
+      94% {
+        width: 86%;
+      }
+    
+      100% {
+        width: 100%;
+      }
+    
+    }
+    
+  
+  
+      $green: #00b3ff;
+      $gray-light: #eef1f3;
+      
+      // Bar Variables ========================================
+      $bar-size: 5px;
+      $bar-radius: 60px;
+      $bar-bg: rgba(0,0,0,0.075);
+      
+      // Bar ============================================
+  .progress-bar {
+  border-radius: $bar-radius;
+  overflow: hidden;
+  width: 100%;
+  background : white;
+  span {
+    display: block;
+  }
+  height : 20px;
+  
+  }
+  
+  .progress{
+  animation : loader 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  }
+  
+  // Vertical Centering ==============================
+  // You don't need this to make it work on your site.
+  .progress-bar {
+  left: 50%;
+  max-width: 60%;
+  position: relative;
+  top: 50%;
+  transform: translate3d(-50%,-50%,0);
+  }

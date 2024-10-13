@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar _bg-theme-color>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-avatar slot="start" padding>
+        <img src="{{photoURL}}">
+    </ion-avatar>
+    <ion-title>{{ session }}</ion-title>
+    <ion-icon name="text" slot="end" (click)="showModalChat()" padding></ion-icon>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style=" --background: url(../../../assets/img/getstart.jpg) no-repeat center/cover fixed;">
+    <ng-container *ngFor="let usr of usersList">
+      <ion-item *ngIf="(usr.lastMSG.from == session || usr.lastMSG.to == session) && usr.user.id != session" (click)="openChat(usr?.user)">
+        <ion-avatar slot="start">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==">
+        </ion-avatar>
+        <ion-label>
+          <strong>{{ usr?.user.name == session ? usr?.lastMSG.from : usr?.user.name }}</strong>
+          <p>{{ usr?.lastMSG?.msg }}</p>
+        </ion-label>
+        <div>
+            <p no-margin gray-time>{{ chatTime(usr?.lastMSG.timestamp) }}</p>
+        </div>
+      </ion-item>
+    </ng-container>
+    <ion-item *ngIf="!usersList">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+</ion-content>

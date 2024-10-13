@@ -1,0 +1,108 @@
+
+
+<ion-content style=" z-index : 10; --background : url(../../assets/assetso/img/background-profile.png) no-repeat center/cover fixed" >
+
+<div class="container" style=" border-top-left-radius: 50px; border-top-right-radius: 50px; box-shadow:  -5px 5px 19px #818181,
+    5px -5px 19px #ffffff; background : url(../../assets/img/getstart.jpg); background-size: cover;">
+    <div class="img__profile" style="background: transparent;">
+        <img  src="{{photoURL}}" alt="profile" class="sc-ion-card-md-h">
+        <div class="name" style="background: transparent;">{{usersa.name}}</div>
+        <div class="id" style="background: transparent;">{{usersa.id}}</div>
+    </div>
+
+    <ion-card  style="border-radius: 50px; padding-top: 20px; padding-bottom: 20px;background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(249,249,249,1) 100%);">
+        
+        <div class="item" style="background : transparent">
+          <img style='width: 40px;' src="../../assets/assetso/img/icon/im1.png" alt="im1.png">
+          <span style=" padding-top: 13px;background-color: transparent; font-size: 17px; color: black; ">Gender: {{ usersa.gender }}</span>
+        </div>
+        <div class="item" style="background : transparent">
+          <img style='width: 40px;' src="../../assets/assetso/img/icon/im2.png" alt="Notification.png">
+          <span style=" padding-top: 13px;background-color: transparent; font-size: 17px; color: black; ">WA Number: {{ usersa.wa }}</span>
+        </div>
+
+        <div class="item" style="background : transparent">
+          <img style='width: 40px;' src="../../assets/assetso/img/icon/im3.png" alt="Notification.png">
+          <span style=" padding-top: 13px;background-color: transparent; font-size: 17px; color: black; ">Completion Task: {{ usersa.completion }}</span>
+        </div>
+        <div class="item" style="background : transparent">
+          <img style='width: 40px;' src="../../assets/assetso/img/icon/im4.png" alt="Notification.png">
+          <span style=" padding-top: 13px;background-color: transparent; font-size: 17px; color: black; ">Skor 1: {{ usersa.skor1 }}</span>
+        </div>
+        <div class="item" style="background : transparent">
+          <img style='width: 40px;' src="../../assets/assetso/img/icon/im4.png" alt="Notification.png">
+          <span style=" padding-top: 13px;background-color: transparent; font-size: 17px; color: black; ">Skor 2: {{ usersa.skor2 }}</span>
+        </div>
+    </ion-card>
+
+    
+
+
+    <ion-row>
+      <ion-col>
+        <ion-card [routerLink]="['/tabs/about']" style="border-radius: 20px; background: linear-gradient(90deg, rgba(93,224,230,1) 0%, rgba(0,74,173,1) 100%);">
+            <div  class="item" style="padding: 0; text-align: center; background-color: transparent; margin: 10px;">
+                <img style=" background-color: transparent; font-size: 17px; color: white; font-weight: bold;" src="../../assets/assetso/img/icon/about.png" alt="map-pin.png">
+                <span  style=" padding-top: 5px;background-color: transparent; font-size: 17px; color: white; ">About Niti Apps</span>
+              
+            </div>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card [routerLink]="['/tabs/author']" style="border-radius: 20px; background: linear-gradient(90deg, rgba(93,224,230,1) 0%, rgba(0,74,173,1) 100%);">
+            <div  class="item" style="padding: 0; text-align: center; background-color: transparent; margin: 10px;">
+                <img style=" background-color: transparent; font-size: 17px; color: white; font-weight: bold;" src="../../assets/assetso/img/icon/about.png" alt="map-pin.png">
+                <span  style=" padding-top: 5px;background-color: transparent; font-size: 17px; color: white; ">Niti Apps Author</span>
+              
+            </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-card *ngIf="isAdmin"  style="border-radius: 20px; background: linear-gradient(90deg, rgba(93,224,230,1) 0%, rgba(0,74,173,1) 100%);">
+        <div [routerLink]="['/tabs/admin']" class="item" style="padding: 0; text-align: center; background-color: transparent; margin: 10px;">
+            <img style=" background-color: transparent; font-size: 17px; color: white; font-weight: bold;" src="../../assets/assetso/img/icon/map-pin.png" alt="map-pin.png">
+            <span  style=" padding-top: 5px;background-color: transparent; font-size: 17px; color: white; ">ADMIN</span>
+          
+        </div>
+    </ion-card>
+
+    <ion-card (click)="exportToExcel()" *ngIf="isAdmin"  style="border-radius: 20px; background: linear-gradient(90deg, rgba(93,224,230,1) 0%, rgba(0,74,173,1) 100%);">
+      <div class="item" style="padding: 0; text-align: center; background-color: transparent; margin: 10px;">
+          <img style=" background-color: transparent; font-size: 17px; color: white; font-weight: bold;" src="../../assets/assetso/img/icon/map-pin.png" alt="map-pin.png">
+          <span  style=" padding-top: 5px;background-color: transparent; font-size: 17px; color: white; ">EXCELL DOWNLOAD</span>
+        
+      </div>
+    </ion-card>
+
+    <ion-card style="border-radius: 20px; background: linear-gradient(90deg, rgba(93,224,230,1) 0%, rgba(0,74,173,1) 100%);">
+        <div (click)="resetPassword()" class="item" style="padding: 0; text-align: center; background-color: transparent; margin: 10px;">
+            <img style=" background-color: transparent; font-size: 17px; color: white; font-weight: bold;" src="../../assets/assetso/img/icon/map-pin.png" alt="map-pin.png">
+            <span  style=" padding-top: 5px;background-color: transparent; font-size: 17px; color: white; ">Request Change Password</span>
+          
+        </div>
+    </ion-card>
+    
+    <ion-card style="border-radius: 20px;  background: linear-gradient(90deg, rgba(255,222,89,1) 0%, rgba(255,145,77,1) 100%);">
+        <div (click)="logout()" class="item__logout" style="padding: 0; text-align: center; margin: 10px;">
+            <img src="../../assets/assetso/img/icon/log-out.png"style=" background-color: transparent; font-size: 20px; color: white; font-weight: bold;" alt="log-out">
+            <span style=" padding-top: 5px;background-color: transparent; font-size: 17px; color: white; ">Logout</span>
+            
+        </div>
+    </ion-card>
+
+    
+    
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+  
+
+  
+
+    
+  </ion-content>
+  
+  

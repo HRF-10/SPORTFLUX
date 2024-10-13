@@ -1,0 +1,88 @@
+* {
+  /* Colores */
+  --text-color: #011341;
+  --gray-color: #828282;
+  --icon-color: #5D83EF;
+  --container-color: #FBFCFF;
+
+  /* Typography */
+  --body-font: 'Poppins';
+  font-size: 15px;
+  background-color: transparent;
+  background-color: var(--container-color);
+}
+
+.bg img {
+  /* Full height */
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  padding: 20px;
+  position: absolute;
+  top : 160px;
+  width: 100vw;
+}
+
+.img__profile {
+  display: grid;
+  position: relative;
+}
+
+.img__profile img {
+  width: 150px;
+  height: 150px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: -100px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 200px;
+ 
+}
+
+.name {
+  font-size: 20px;
+  line-height: 54px;
+  text-align: center;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--text-color);
+}
+
+.id {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: normal;
+  font-style: normal;
+  color: var(--gray-color);
+  text-align: center;
+  margin-top: -15px;
+}
+
+/* Item Section */
+.item, .item__logout {
+  padding: 10px;
+  display: grid;
+
+  grid-template-columns: 15% 80% 5%;
+  color: var(--text-color);
+}
+
+.item img, .item__logout img {
+  width: 24px;
+}
+
+.item span, .item__logout span {
+  font-style: normal;
+  font-weight: 550;
+  padding: 8px;
+  line-height: 16px;
+}
+
+.item__logout {
+  background-color: transparent;
+}

@@ -1,0 +1,144 @@
+<ion-content>
+  <div
+      style="
+          overflow: hidden;
+          box-shadow: 5px 5px 10px #0b0b0b;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100px;
+          border-radius: 50px;
+          z-index: 30;
+          top: -50px;
+          padding-top: 0;
+      "
+  >
+
+  <!-- Back button -->
+  <ion-button
+  fill="clear"
+  style="
+      position: absolute;
+      top: 50px;
+      left: 15px;
+      z-index: 40;
+      color: white;
+  "
+  (click)="goBack()"
+>
+  <ion-icon name="arrow-back-outline"></ion-icon>
+</ion-button>
+      <div
+          style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.482);
+
+          "
+      ></div>
+      <div
+          style="
+              background: url('../../assets/master_file/SPORTFLUX-LOGO.png') no-repeat center;
+              background-size: contain;
+              height: 130px;
+              width: 40%;
+              position: absolute;
+              top: 70%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              margin-top: 3px;
+          "
+      ></div>
+  </div>
+
+
+  <div style="
+  position: fixed;
+  top: 80px; /* Mengubah dari margin ke top untuk posisi lebih akurat */
+  left: 50%;
+  transform: translateX(-50%); /* Menempatkan di tengah secara horizontal */
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Menyelaraskan elemen secara horizontal */
+  text-align: center; /* Agar teks juga di tengah */
+">
+   <img src="../../assets/master_file/komunitas.png" alt="komunitas" style="width: 200px; height: 200px;">
+   <h3 style="font-weight: bold; color: aliceblue;">Community</h3>
+</div>
+
+
+
+  <!-- bagian bawah -->
+  <div
+  style="
+    position: fixed;
+    box-shadow: 5px 5px 10px #0b0b0b;
+    width: 95%;
+    margin: 350px 10px;
+    background: rgba(0, 0, 0, 0.418);
+    border-radius: 30px;
+    z-index: 30;
+  "
+>
+
+
+  <ion-grid style="margin-bottom: 10px; margin: 10px;">
+      <ion-col size="4" class="ion-text-center">
+        <div
+          class="card"
+          style="
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.482);
+            padding: 10px;
+          "
+        >
+          <div style="margin-bottom: 5px;">
+            <!-- Gambar PNG diatur ukurannya agar seukuran dengan ikon -->
+            <img src="../../assets/master_file/hub.png" style="width: 50px; height: 50px; object-fit: contain; filter: brightness(0) saturate(100%) invert(70%) sepia(70%) hue-rotate(188deg) brightness(94%) contrast(95%);">
+          </div>
+          <!-- Replace with your icon -->
+          <div style="color: white;"><a href="/message" style="text-decoration: none; color: white;">SportFlux Hub</a></div>
+        </div>
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">
+        <div
+          class="card"
+          style="
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.482);
+            padding: 10px;
+          "
+        >
+          <div style="margin-bottom: 5px;">
+            <!-- Gambar PNG diatur ukurannya agar seukuran dengan ikon -->
+            <img src="../../assets/master_file/fisio.png" style="width: 50px; height: 50px; object-fit: contain; filter: brightness(0) saturate(100%) invert(70%) sepia(70%) hue-rotate(188deg) brightness(94%) contrast(95%);">
+          </div>
+          <!-- Replace with your icon -->
+          <div style="color: white"><a href="/tabs/fisioterapis" style="text-decoration: none; color: white;">SportFlux Fisioterapis</a></div>
+        </div>
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">
+        <div
+          class="card"
+          style="
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.482);
+            padding: 10px;
+          "
+        >
+          <div style="margin-bottom: 5px;">
+            <!-- Gambar PNG diatur ukurannya agar seukuran dengan ikon -->
+            <img src="../../assets/master_file/trainer.png" style="width: 50px; height: 50px; object-fit: contain; filter: brightness(0) saturate(100%) invert(70%) sepia(70%) hue-rotate(188deg) brightness(94%) contrast(95%);">
+          </div>
+          <div style="color: white">
+            <a href="/tabs/trainer" style="text-decoration: none; color: white;">SportFlux Trainer</a>
+          </div>
+        </div>
+      </ion-col>          
+  </ion-grid>
+</div>
+
+</ion-content>

@@ -1,0 +1,117 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <div class="logo"></div>
+      <div class="pfp"></div>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]='registerForm'>
+        <div class="input-group">
+          <p>Username</p>
+          <ion-input type="text" formControlName="name" placeholder="display name"></ion-input>
+          <mat-error *ngIf="registerForm.controls.name.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </div>
+
+        <div class="input-group">
+          <p>Email</p>
+          <ion-input type="email" formControlName="email" placeholder="unique id"></ion-input>
+          <mat-error *ngIf="registerForm.controls.email.hasError('email') && !registerForm.controls.email.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="registerForm.controls.email.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </div>
+
+        <div class="input-group">
+          <p>Password</p>
+          <ion-input type="password" formControlName="password" placeholder="Your secret"></ion-input>
+          <mat-error *ngIf="registerForm.controls.password.hasError('required')">
+            Please Enter <strong>Password</strong>
+          </mat-error>
+          <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">
+            Minimum length should be <strong>6</strong>
+          </mat-error>
+        </div>
+
+        <div class="input-group">
+          <p>Confirm Password</p>
+          <ion-input type="password" formControlName="confirm_password" placeholder="Your secret"></ion-input>
+          <mat-error *ngIf="registerForm.controls.confirm_password.hasError('required')">
+            Please Confirm <strong>Password</strong>
+          </mat-error>
+          <mat-error *ngIf="registerForm.controls.confirm_password.hasError('mustMatch')">
+            Both Passwords should <strong>Match</strong>
+          </mat-error>
+        </div>
+
+        <div class="input-group">
+          <p>Gender</p>
+          <ion-select formControlName="gender" placeholder="Select your gender" style="background-color: #E0FFFF; border-radius: 30px;">
+            <ion-select-option value="male">Laki</ion-select-option>
+            <ion-select-option value="female">Perempuan</ion-select-option>
+          </ion-select>
+          <mat-error *ngIf="registerForm.controls.gender?.hasError('required')">
+            Gender is <strong>required</strong>
+          </mat-error>
+        </div>
+
+        <div class="input-group">
+          <p>Lokasi</p>
+          <ion-select formControlName="city" placeholder="Select your location" style="background-color: #E0FFFF; border-radius: 30px;">
+            <ion-select-option value="Jakarta">Jakarta</ion-select-option>
+            <ion-select-option value="Makassar">Makassar</ion-select-option>
+            <ion-select-option value="Surabaya">Surabaya</ion-select-option>
+            <ion-select-option value="Bandung">Bandung</ion-select-option>
+            <ion-select-option value="Medan">Medan</ion-select-option>
+            <ion-select-option value="Bali">Bali</ion-select-option>
+            <ion-select-option value="Yogyakarta">Yogyakarta</ion-select-option>
+            <ion-select-option value="Semarang">Semarang</ion-select-option>
+            <ion-select-option value="Surakarta">Surakarta</ion-select-option>
+            <ion-select-option value="Malang">Malang</ion-select-option>
+          </ion-select>
+          <mat-error *ngIf="registerForm.controls.city?.hasError('required')">
+            Lokasi is <strong>required</strong>
+          </mat-error>
+        </div>
+
+        <div class="input-group">
+          <p>WhatsApp Number</p>
+          <ion-input type="text" formControlName="wa" placeholder="Your WhatsApp Number"></ion-input>
+          <mat-error *ngIf="registerForm.controls.wa?.hasError('required')">
+            WhatsApp Number is <strong>required</strong>
+          </mat-error>
+        </div>
+
+        <div class="input-group">
+          <p>Category</p>
+          <ion-select formControlName="category" placeholder="Select your category" style="background-color: #E0FFFF; border-radius: 30px;">
+            <ion-select-option value="user">User</ion-select-option>
+            <ion-select-option value="trainer">Trainer</ion-select-option>
+            <ion-select-option value="physiotherapist">Physiotherapist</ion-select-option>
+          </ion-select>
+          <mat-error *ngIf="registerForm.controls.category?.hasError('required')">
+            Category is <strong>required</strong>
+          </mat-error>
+        </div>
+
+        <div class="input-group">
+          <p>Upload File</p>
+          <input type="file" id="file" (change)="onFileSelected($event)">
+        </div>
+
+        <button class="sign-btn" type="button" mat-raised-button (click)="register()" mat-color="primary" [disabled]="!registerForm.valid">
+          <span style="color: #fff;">Sign Up</span>
+        </button>
+
+        <div class="signup-link">
+          Already have an account?
+          <a routerLink='/login'> Log In </a>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,131 @@
+ion-content {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    --background: radial-gradient(
+        circle at 10% 20%,
+        rgb(210, 231, 242) 0%,
+        rgb(7, 134, 197) 90.1%
+    );
+}
+
+.chat-box {
+    flex: 1;
+    position: relative;
+    margin-top: 5px;
+    padding: 10px;
+    overflow-y: auto;
+    margin-bottom: 70px;
+  }
+  
+  .message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 70%; /* Membatasi lebar pesan */
+  }
+  
+  .from-me {
+    margin-left: auto; /* Membuat pesan dari pengguna berada di sebelah kanan */
+    flex-direction: row-reverse; /* Avatar di sebelah kanan */
+  }
+  
+
+  .bungkus {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Agar avatar dan username berada di tengah secara vertikal */
+    margin-right: 10px; /* Beri jarak antara avatar dengan teks pesan */
+  }
+  
+  .bungkus img {
+    margin-bottom: 5px; /* Beri jarak antara avatar dan nama */
+  }
+  
+  .bungkus p {
+    font-size: 12px; /* Ukuran font yang lebih kecil untuk nama */
+    color: #fff;  
+    background-color: transparent; /* Latar belakang transparan */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .from-me .bungkus {
+    margin-left: 10px; /* Jarak dari tepi kanan */
+  }
+  
+  .from-them .bungkus {
+    margin-right: 10px; /* Jarak dari tepi kiri */
+  }
+  
+  .from-them .bungkus p {
+    color: #000; /* Warna teks untuk user2 (bisa disesuaikan sesuai kebutuhan) */
+  }
+  
+  .from-me .bungkus {
+    margin-left: 10px; /* Jarak dari tepi kanan */
+  }
+  
+  .from-them .bungkus {
+    margin-right: 10px; /* Jarak dari tepi kiri */
+  }
+
+  .from-me .text {
+    background-color: #e1ffc7; /* Warna latar belakang untuk pesan pengguna */
+    border-radius: 10px 10px 0 10px; /* Ujung kanan lebih bulat */
+  }
+  
+  .from-them {
+    margin-right: auto; /* Membuat pesan dari orang lain berada di sebelah kiri */
+    flex-direction: row; /* Avatar di sebelah kiri */
+  }
+  
+  .from-them .text {
+    background-color: #fff; /* Warna latar belakang untuk pesan orang lain */
+    border-radius: 10px 10px 10px 0; /* Ujung kiri lebih bulat */
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .message .text {
+    padding: 10px;
+    font-size: 14px;
+    color: #000;
+  }
+  
+  .input-box {
+    display: flex;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.482);
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 40px 40px 0px 0px;
+    z-index: 100;
+    align-items: center;
+  }
+  
+  .input-box input {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 15px;
+    border: none;
+    width: 85%;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 16px;
+  }
+  
+  .input-box ion-icon {
+    padding: 10px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+  }

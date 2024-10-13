@@ -1,0 +1,42 @@
+
+<ion-tabs>
+    
+  <ion-fab  vertical="bottom" horizontal="center" translucent="true">
+
+  <ion-fab-button (click)="navigateToImu()" color='dark' #button id='button'  style="overflow : visible !important; " >
+      <div class="outline">
+      </div>
+      <div class="outline" id="delayed">
+      </div>
+      <ion-icon color='light' name="pulse"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+        width="135.000000pt" height="125.000000pt" viewBox="0 0 135.000000 125.000000"
+        preserveAspectRatio="xMidYMid meet">
+       
+       <g transform="translate(0.000000,125.000000) scale(0.100000,-0.100000)"
+       fill="#000000" stroke="none">
+       </g>
+       </svg></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <ion-tab-bar slot="bottom" class="ion-no-border">
+
+    <ion-tab-button tab="home">
+      <ion-icon color='#fff' name="home"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="community" class="comments">
+      <ion-icon color='#fff' name="people"></ion-icon>
+    </ion-tab-button>
+
+    <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg"><path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd"></path></svg>
+
+    <ion-tab-button tab="device"> <!-- <ion-tab-button tab="terjemahan" class="notifs"> -->
+      <ion-icon color='#fff' name="phone-landscape"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button href="/tabs/chat">
+      <ion-icon color="#fff" name="person"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

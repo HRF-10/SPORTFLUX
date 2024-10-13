@@ -1,0 +1,99 @@
+<ion-content>
+  <div style="
+      overflow: hidden;
+      box-shadow: 5px 5px 10px #0b0b0b;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100px;
+      border-radius: 50px;
+      z-index: 30;
+      top: -50px;
+      padding-top: 0;
+      
+  ">
+    <!-- Back button -->
+    <ion-button fill="clear" style="
+      position: absolute;
+      top: 50px;
+      left: 15px;
+      z-index: 40;
+      color: white;
+    " (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+
+    <div style="
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.482);
+    "></div>
+
+    <div style="
+      background: url('../../assets/master_file/SPORTFLUX-LOGO.png') no-repeat center;
+      background-size: contain;
+      height: 130px;
+      width: 40%;
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-top: 3px;
+    "></div>
+  </div>
+
+  <!-- Chat section -->
+  <div class="chat-box" style="padding-top: 120px;">
+    <div *ngFor="let mess of messages">
+      <!-- Jika pesan dari user saat ini -->
+      <div class="message from-me" *ngIf="mess.from == session">
+        <div class="bungkus">
+          <img src="../../../assets/imgs/avatar/avatar9.jpg" alt="Avatar" class="avatar">
+          <p>you</p>
+        </div>
+        <div class="text">{{ mess.msg }}</div>
+        <!-- Status pesan -->
+        <div *ngIf="mess.from === session" class="msg-status">
+          <div *ngIf="mess.status === 'pending'; else sent">
+            pending
+            <ion-icon name="time"></ion-icon>
+          </div>
+          <ng-template #seen>
+            <div *ngIf="mess.status === 'seen'">
+              seen
+              <ion-icon name="checkmark-done"></ion-icon>
+            </div>
+          </ng-template>
+          <ng-template #sent>
+            <div *ngIf="mess.status === 'sent'; else seen">
+              sent
+              <ion-icon name="checkmark"></ion-icon>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <!-- Jika pesan dari orang lain -->
+      <div class="message from-them" *ngIf="mess.from != session">
+        <div class="bungkus">
+          <img src="https://www.w3schools.com/w3css/img_avatar2.png" alt="Avatar" class="avatar">
+          <p>{{ user2Name }}</p>
+        </div>
+        <div class="text">{{ mess.msg }}</div>
+      </div>
+    </div>  
+
+    <!-- Loader ketika chat sedang dimuat -->
+    <div *ngIf="loader" flex v-center h-center style="height: 100%; margin-top: 20px;">
+      <ion-spinner name="crescent" color="success" style="width: 100px; height: 100px;"></ion-spinner>
+    </div>
+  </div>
+
+  <!-- Input box -->
+  <div class="input-box">
+    <input [(ngModel)]="chat" (keyup.enter)="sendChat()" placeholder="Type here ..." type="text"/>
+    <ion-icon name="send" (click)="sendChat()"></ion-icon>
+  </div>
+</ion-content>

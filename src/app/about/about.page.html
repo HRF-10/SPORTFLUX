@@ -1,0 +1,118 @@
+
+<ion-content style=" --background: url(../../assets/img/getstart.jpg) no-repeat center/cover fixed;">
+  <ion-card style="margin-left : 0 !important; overflow : hidden; position : absolute; top : 0; left : 0; width : 100vw; height : 100px; background : url(../../assets/bg4.png); background-size: cover; border-radius : 50px; z-index : 30; top : -50px;">
+    <div [routerLink]="['/tabs/home']" style=" position : absolute; width : 100px; height : 50px; left : 0; bottom : 0; z-index : 10000;">
+      <div style="background : url(../../assets/img/back.png); background-size : 50px 50px; position : absolute; width : 50px; height: 50px; left : 25%"></div>
+    </div>
+    <div [routerLink]="['/tabs/info']" style=" position : absolute; width : 100px; height : 50px; right : 0; bottom : 0; z-index : 10000;">
+      <div style="background : url(../../assets/img/indo2.png); background-size : 50px 50px; position : absolute; width : 50px; height: 50px; left : 25%"></div>
+    </div>
+    
+    <div style="text-align : center; padding-top : 10px; font-weight: bold;  left : calc(50vw - 60px); position : absolute; top : 54px;  width : 120px; height : 40px; z-index : 100; background-size : cover; ">
+    TENTANG APLIKASI
+    </div>
+  </ion-card>
+  
+  <ion-grid style="margin-top : 60px;">
+
+    <ion-row>
+      <ion-card  style="--background: url(../../../assets/img/getstart.jpg) no-repeat center/cover fixed;
+      overflow : scroll;   width : 100%; height : auto; margin : 20px 20px 20px 20px; background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(249,249,249,1) 100%); border-radius : 30px; z-index : 30; ">
+      
+      <ion-grid style="z-index : 120">
+        <ion-row>
+          <ion-col>
+            <ion-item style="text-align : center; --background : transparent; color : black; font-weight: bold;">
+              Tentang Aplikasi Niti Apps
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item style="text-align : justify; --background : transparent; color : black; ">
+              Niti Apps adalah sebuah aplikasi yang bertujuan untuk membantu memperkuat kesadaran akan etika digital di era keterbukaan informasi. Dikembangkan sebagai bagian dari Materi Pembelajaran PPKn tentang Taat Hukum oleh Siska Fitri Anggraheni, S.Pd., aplikasi ini merupakan hasil dari program pascasarjana Fakultas Keguruan dan Ilmu Pendidikan Universitas Sebelas Maret tahun 2024. Dengan panduan dari pembimbing Prof. Dr. Triyanto, S.H., M.Hum, dan Dr. Mohammad Muchtarom, S.Ag., M.Si, serta validasi materi dari Dr. Winarno, S.Pd., M.Si dan Ary Purwanti, S.Pd, serta validasi media dari Dr. Anita Trisiana, S.Pd., MH dan Dr. Fatma Sukmawati, M.Pd, aplikasi ini juga didukung oleh desain, tata letak, dan ilustrasi yang dikembangkan oleh Abi Khoir Naufal Zaqli. Niti Apps hadir dengan tujuan memberikan wawasan tentang pentingnya etika digital dalam konteks keterbukaan informasi dan demokratisasi, serta memberikan praktik kesadaran etika digital bagi warga negara Indonesia di ruang digital. Selamat menikmati pembelajaran melalui Niti Apps!
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+     
+     
+        <ion-row>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+        </ion-row>
+       
+     
+        <!-- <ion-row>
+          <ion-col>
+            <div [routerLink]="['/upload']" class='card' style="display : block; border-radius: 18px;
+    background: #3060b6;
+    box-shadow:  -5px 5px 19px #c9c9c9,
+                 5px -5px 19px #ffffff;  width : 100px; height : 100px; ">
+                <div style="position : relative; width : 50px; height : 50px; top : 10%; left : 25%; background : url(../../assets/img/manage.png); background-size : cover;">
+    
+                </div>
+                <p style="text-align : center; width : 100px;  position : absolute; bottom : 20px; font-weight : bold; color : white; ">
+                  Input
+                </p>  
+                </div>
+          </ion-col>
+          <ion-col>
+            <div [routerLink]="['/mo1']" class='card' style="display : block; border-radius: 18px;
+    background: #3060b6;
+    box-shadow:  -5px 5px 19px #c9c9c9,
+                 5px -5px 19px #ffffff;  width : 100px; height : 100px; ">
+                <div style="position : relative; width : 50px; height : 50px; top : 10%; left : 25%; background : url(../../assets/img/data.png); background-size : cover;">
+    
+                </div>
+                <p style="text-align : center; width : 100px;  position : absolute; bottom : 20px; font-weight : bold; color : white; ">
+                  Data
+                </p>  
+                </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item style="text-align : center; --background : transparent; color : black;">
+              Sehingga ada 3 halaman utama dalam web ini yaitu atur database, view data, dan input data. Di setiap dari ketiga halaman tersebut, sebelum dapat menggunakan fitur nya harap pengguna untuk memilih thermogun yang akan diatur databasenya, diview datanya, maupun untuk diinput datanya agar fitur dapat digunakan. Untuk memilih thermogun yang akan diatur, diview, ataupun diinputkan anda cukup klik tombol seperti di bawah ini. Kemudian akan muncul pop up pilihan thermogun yang terdaftar
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item color='primary'>
+              <ion-label >Pilih Thermogun</ion-label>
+              <ion-select ok-text="Okay" cancel-text="Nah">
+
+                  <ion-select-option >Thermogun 1</ion-select-option>
+                  <ion-select-option >Thermogun 2</ion-select-option>
+                  <ion-select-option >Thermogun 3</ion-select-option>
+
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        -->
+      </ion-grid>
+      
+      
+      
+      
+        
+    </ion-card>
+    </ion-row>
+  </ion-grid>
+
+  
+
+  
+
+    
+  </ion-content>
+  
+  

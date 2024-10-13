@@ -1,0 +1,197 @@
+ion-toolbar {
+  --background: rgb(32,100,126);
+  background-color: transparent;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  height: 120px;
+  border-radius: 0% 0% 20% 20%;
+}
+
+.search-bar-container {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 50;
+}
+
+.suggestion-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.suggestion-label {
+  font-weight: bold;
+  color: #fff;
+  font-size: 15px;
+  margin-left: 35px;
+}
+
+ion-searchbar {
+  --background: white;
+  --icon-color: #003366;
+  color: black;
+  width: 60%;
+  margin-left: 10px;
+  padding: 5px;
+  z-index: 20;
+  position: relative;
+}
+
+ion-icon{
+  font-size: 40px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+
+ion-chip {
+  --background: rgb(168,144,0);
+  --color: white;
+  --border-radius: 15px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.avatar-background ion-avatar {
+  background-image: url("../../assets/master_file/starpfp.png");
+  background-size: contain;
+  background-position: center;
+  border-radius: 0;
+  width: 100px;
+  height: 100px;
+}
+
+.recommendation,
+.trainer-list {
+  margin: 10px;
+  margin-left: -5px;
+  width: 102%;
+}
+
+ion-card{
+  border-radius: 30px;
+}
+
+ion-item {
+  background-color: rgba(0, 0, 0, 0.482);
+  --background: transparent;
+  --inner-border-width: 0;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 5px;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+// ion-item::part(native) {
+//   background: none;
+// }
+
+ion-label {
+  font-size: 14px;
+  font-weight: normal;
+  color: white;
+}
+
+ion-label h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.icon-image {
+  width: 10%;
+  height: auto;
+  filter: invert(100%) brightness(200%);
+}
+
+.icon-image-2 {
+  width: 10%;
+  height: auto;
+}
+
+.trainer {
+  margin-top: 30px;
+  left: 25%;
+  position: relative;
+  top: -3vh;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  z-index: 20;
+}
+
+.trainer h3 {
+  color: #fff;
+  margin: 0;
+  font-weight: bold;
+  width: 200px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #003366; 
+  border-radius: 10px;
+}
+
+.activity {
+  position: relative;
+  top: -8vh;
+  background-color: rgba(0, 0, 0, 0.482);
+  border-radius: 30px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.pembungkus{
+  margin-top: 35px;
+}
+
+.pembungkus ion-card-content {
+  margin-top: -15px; /* Kurangi nilai margin-top */
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.record {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.482);
+  border-radius: 30px;
+  padding: 10px;
+  height: auto;
+  margin: 10px 0;
+}
+
+.record img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.record .uji {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.record-info {
+  flex-grow: 1;
+}
+
+.record-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+.record-info .badge {
+  border-radius: 5px;
+  padding: 2px 5px;
+  width: auto;
+  height: auto;
+  font-weight: bold;
+  font-size: 15px;
+}

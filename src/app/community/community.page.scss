@@ -1,0 +1,11 @@
+ion-content {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    --background: radial-gradient(
+        circle at 10% 20%,
+        rgb(210, 231, 242) 0%,
+        rgb(7, 134, 197) 90.1%
+    );
+}
+
