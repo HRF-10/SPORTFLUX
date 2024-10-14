@@ -273,26 +273,27 @@ export class DeviceInfoPage implements OnInit, AfterViewInit, OnDestroy {
   }
 
   downloadData() {
-    const recordedData = this.api.getRecordedData();
-    const csvContent = this.convertToCSV(recordedData);
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
-    const url = URL.createObjectURL(blob);
-    link.setAttribute('href', url);
-    link.setAttribute('download', 'recordedData.csv');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
+    // Buat header CSV
+    const header = 'Timestamp,EMG,AccelerometerX,AccelerometerY,AccelerometerZ,GyroscopeX,GyroscopeY,GyroscopeZ,MagnetometerX,MagnetometerY,MagnetometerZ\n';
+    
+    // Buat baris data untuk setiap entri
+    const csvRows = this.imuData.map(row => {
+        return `${new Date().toISOString()},${row.emg},${row.accelerometerX},${row.accelerometerY},${row.accelerometerZ},${row.gyroscopeX},${row.gyroscopeY},${row.gyroscopeZ},${row.magnetometerX},${row.magnetometerY},${row.magnetometerZ}`;
+    });
 
-  convertToCSV(data: any[]): string {
-    const headers = 'Timestamp,IMU Data,EMG Data\n';
-    const rows = data.map(point => {
-      const imuData = JSON.stringify(point.imuData);
-      return `${point.timestamp},${imuData},${point.emg}`; // Pastikan menggunakan point.emg
-    }).join('\n');
-    return headers + rows;
-  }  
+    // Gabungkan header dan data
+    const csvData = header + csvRows.join('\n');
+
+    const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'imu_data.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url); // Hapus URL blob
+  }
 
   ngOnDestroy() {
     if (this.updateInterval) {
