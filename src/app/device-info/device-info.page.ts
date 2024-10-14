@@ -301,4 +301,8 @@ export class DeviceInfoPage implements OnInit, AfterViewInit, OnDestroy {
     }
     window.removeEventListener('resize', this.onResize.bind(this));
   }
+  
+  goBack() {
+    this.router.navigate(['..']); // Navigasi ke halaman sebelumnya
+  }
 }

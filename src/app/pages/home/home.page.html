@@ -12,7 +12,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content style=" --background: url(../../../assets/img/getstart.jpg) no-repeat center/cover fixed;">
+<ion-content style=" --background: url(../../../assets/master_file/bg-chat.png) no-repeat center/cover fixed;">
     <ng-container *ngFor="let usr of usersList">
       <ion-item *ngIf="(usr.lastMSG.from == session || usr.lastMSG.to == session) && usr.user.id != session" (click)="openChat(usr?.user)">
         <ion-avatar slot="start">

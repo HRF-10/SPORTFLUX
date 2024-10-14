@@ -40,8 +40,6 @@ const routes: Routes = [
       },
      
       { path: "about", loadChildren: "../about/about.module#AboutPageModule" },
-
-      { path: 'device-info', loadChildren: './device-info/device-info.module#DeviceInfoPageModule' },
       
       {
         path: "admin",

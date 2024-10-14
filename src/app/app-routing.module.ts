@@ -41,7 +41,6 @@ const routes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'imu', loadChildren: './imu/imu.module#ImuPageModule' },
   { path: 'device-info', loadChildren: './device-info/device-info.module#DeviceInfoPageModule' },
- 
 ];
 
 @NgModule({
