@@ -1,0 +1,122 @@
+//grfik
+.card {
+
+  margin: 20px auto;
+  display : block;
+
+}
+.card2 {
+
+  margin: 5px auto;
+  display : block;
+
+}
+
+//fygsdovpsihqodj]
+
+.imu-data-card {
+  margin: 5px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.482);
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px #0b0b0b; margin: 20px 5px; width: 100%;     width: 90%; /* Ukuran card menyesuaikan 90% dari lebar layar */
+  max-width: 400px; /* Batas maksimum lebar card */
+  margin-left: auto; /* Mengatur margin kiri otomatis untuk tengah */
+  margin-right: auto; /* Mengatur margin kanan otomatis untuk tengah */
+}
+
+.imu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px; /* Jarak antar elemen lebih kecil */
+}
+
+//speed
+.imu-item-speed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d4edda;
+  padding: 10px; /* Padding lebih kecil */
+  border-radius: 6px; /* Radius lebih kecil */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem; /* Ukuran font sedikit lebih kecil */
+}
+
+.imu-item-speed ion-icon {
+  color:#28a745 ;
+  font-size: 20px; /* Ukuran ikon lebih kecil */
+  margin-bottom: 5px; /* Jarak lebih kecil */
+}
+
+.imu-item-speed .type {
+  color:#28a745 ;
+  font-weight: bold;
+  font-size: 12px; /* Ukuran teks lebih kecil */
+  margin-bottom: 3px; /* Jarak lebih kecil */
+}
+
+.imu-item-speed .amount {
+  font-size: 12px; /* Ukuran teks lebih kecil */
+  color: #555;
+}
+
+//rocket
+.imu-item-rocket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8d7da;
+  padding: 10px; /* Padding lebih kecil */
+  border-radius: 6px; /* Radius lebih kecil */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem; /* Ukuran font sedikit lebih kecil */
+}
+
+.imu-item-rocket ion-icon {
+  color: #E0115F;
+  font-size: 20px; /* Ukuran ikon lebih kecil */
+  margin-bottom: 5px; /* Jarak lebih kecil */
+}
+
+.imu-item-rocket .type {
+  font-weight: bold;
+  color: #E0115F;
+  font-size: 12px; /* Ukuran teks lebih kecil */
+  margin-bottom: 3px; /* Jarak lebih kecil */
+}
+
+.imu-item-rocket .amount {
+  font-size: 12px; /* Ukuran teks lebih kecil */
+  color: #555;
+}
+
+//compass
+.imu-item-compass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFF6CC;
+  padding: 10px; /* Padding lebih kecil */
+  border-radius: 6px; /* Radius lebih kecil */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem; /* Ukuran font sedikit lebih kecil */
+}
+
+.imu-item-compass ion-icon {
+  color: #ffb100;
+  font-size: 20px; /* Ukuran ikon lebih kecil */
+  margin-bottom: 5px; /* Jarak lebih kecil */
+}
+
+.imu-item-compass .type {
+  color: #ffb100;
+  font-weight: bold;
+  font-size: 12px; /* Ukuran teks lebih kecil */
+  margin-bottom: 3px; /* Jarak lebih kecil */
+}
+
+.imu-item-compass .amount {
+  font-size: 12px; /* Ukuran teks lebih kecil */
+  color: #555;
+}

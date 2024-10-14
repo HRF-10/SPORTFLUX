@@ -60,7 +60,7 @@ ion-input {
     border-radius: 25px;
     background: rgba(0, 0, 0, 0.6);
     transition: background 0.3s ease;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 ion-input::placeholder {
@@ -68,10 +68,10 @@ ion-input::placeholder {
 }
 
 ion-input:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: #fff;
 }
 
-p {
+p { 
     font-weight: bold;
     text-align: start;
     color: #fff;
@@ -96,5 +96,5 @@ p {
 
 .signup-link a {
     color: #00f2fe;
-    text-decoration: none;
+    text-decoration: none;
 }

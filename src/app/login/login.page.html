@@ -1,51 +1,120 @@
-<ion-content style="--background: linear-gradient(to bottom, #4facfe, #00f2fe); display: flex; justify-content: center; align-items: center; margin: 0; padding: 0; height: 100%;">
-  
-  <ion-card style="background-color: rgba(0, 0, 0, 0.7); box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5); border-radius: 30px; z-index: 50; padding: 20px; margin-top: 30vw;">
+<ion-content
+  style="
+    --background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  "
+>
+  <ion-card
+    style="
+      background-color: rgba(0, 0, 0, 0.7);
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+      border-radius: 30px;
+      z-index: 50;
+      padding: 20px;
+      margin-top: 30vw;
+    "
+  >
     <ion-card-header>
-      <div class="logo" style="width: 150px; height: 50px; margin: 0 auto 20px; background-image: url('../../assets/master_file/SPORTFLUX-LOGO.png'); background-size: cover;"></div>
-      <div class="pfp" style="width: 100px; height: 100px; border-radius: 20%; box-shadow: 5px 5px 10px #0b0b0b; margin: 0 auto 20px; background: url('https://www.w3schools.com/w3css/img_avatar2.png') no-repeat center center; background-size: cover;"></div>
+      <div
+        class="logo"
+        style="
+          width: 150px;
+          height: 50px;
+          margin: 0 auto 20px;
+          background-image: url('../../assets/master_file/SPORTFLUX-LOGO.png');
+          background-size: cover;
+        "
+      ></div>
+      <div
+        class="pfp"
+        style="
+          width: 100px;
+          height: 100px;
+          border-radius: 20%;
+          box-shadow: 5px 5px 10px #0b0b0b;
+          margin: 0 auto 20px;
+          background: url('https://www.w3schools.com/w3css/img_avatar2.png')
+            no-repeat center center;
+          background-size: cover;
+        "
+      ></div>
     </ion-card-header>
-  
+
     <ion-card-content>
       <form [formGroup]="loginForm">
-        <div class="input-group" style="margin-bottom: 15px;">
-          <p style="font-weight: bold; text-align: center; color: #fff; margin: 0 0 5px;">Email</p>
-          <ion-input type="text" formControlName="email" style="width: 100%; padding: 10px; border-radius: 25px; background: rgba(0, 0, 0, 0.6);"></ion-input>
-          <mat-error *ngIf="loginForm.controls.email.hasError('email') && !loginForm.controls.email.hasError('required')">Please enter a valid email address</mat-error>
-          <mat-error *ngIf="loginForm.controls.email.hasError('required')">Email is <strong>required</strong></mat-error>
+        <div class="input-group" style="margin-bottom: 15px">
+          <p
+            style="font-weight: bold;  color: #fff; margin: 0 0 5px;"
+          >
+            Email
+          </p>
+          <ion-input
+            type="text"
+            formControlName="email"
+            class="custom-input"
+            placeholder="Your Email"
+          ></ion-input>
+          <mat-error
+            *ngIf="loginForm.controls.email.hasError('email') && !loginForm.controls.email.hasError('required')"
+            >Please enter a valid email address</mat-error
+          >
+          <mat-error *ngIf="loginForm.controls.email.hasError('required')"
+            >Email is <strong>required</strong></mat-error
+          >
         </div>
-        
-        <div class="input-group" style="margin-bottom: 15px;">
-          <p style="font-weight: bold; text-align: center; color: #fff; margin: 0 0 5px;">Password</p>
-          <ion-input type="password" formControlName="password" style="width: 100%; padding: 10px; border-radius: 25px; background: rgba(0, 0, 0, 0.6);"></ion-input>
-          <mat-error *ngIf="loginForm.controls.password.hasError('required')">Please Enter <strong>Password</strong></mat-error>
-          <mat-error *ngIf="loginForm.controls.password.hasError('minlength')">Minimum length should be <strong>6</strong></mat-error>
+
+        <div class="input-group" style="margin-bottom: 15px">
+          <p
+            style="font-weight: bold; text-align: center; color: #fff; margin: 0 0 5px;"
+          >
+            Password
+          </p>
+          <ion-input
+            [type]="passwordType"
+            formControlName="password"
+            class="custom-input"
+            placeholder="Your Password"
+          ></ion-input>
+          <mat-error *ngIf="loginForm.controls.password.hasError('required')"
+            >Please Enter <strong>Password</strong></mat-error
+          >
+          <mat-error *ngIf="loginForm.controls.password.hasError('minlength')"
+            >Minimum length should be <strong>6</strong></mat-error
+          >
+          <div style="display: flex; align-items: center; margin-top: 5px;">
+            <ion-checkbox
+              slot="start"
+              (ionChange)="togglePasswordVisibility()"
+            ></ion-checkbox>
+            <span style="color: #fff; margin-left: 5px">Show Password</span>
+          </div>
         </div>
-        
-        <button expand="block" class="login-btn" (click)="login()" [disabled]="!loginForm.valid" style="width: 100%; padding: 10px; border-radius: 25px; background: #002b3e; color: white; font-size: 16px;">
+
+        <button
+          expand="block"
+          class="login-btn"
+          (click)="login()"
+          [disabled]="!loginForm.valid"
+        >
           <span *ngIf="!api.loader">Login</span>
           <ion-spinner name="dots" *ngIf="api.loader"></ion-spinner>
         </button>
       </form>
-      
-      <div class="signup-link" style="margin-top: 20px; color: white; font-size: 14px;">
+
+      <div
+        class="signup-link"
+        style="margin-top: 20px; color: white; font-size: 14px"
+      >
         Didn't have an account?
-        <a routerLink="/register" style="color: #00f2fe; text-decoration: none;">Sign Up</a>
+        <a routerLink="/register" style="color: #00f2fe; text-decoration: none"
+          >Sign Up</a
+        >
       </div>
     </ion-card-content>
-  
   </ion-card>
-
 </ion-content>
-
-<style>
-  /* Tambahkan ini ke file CSS Anda */
-  
-  .input-group ion-input {
-    transition: background 0.3s ease; /* Efek transisi pada latar belakang */
-  }
-  
-  .input-group ion-input:hover {
-    background: rgba(0, 0, 0, 0.8); /* Ganti latar belakang saat hover */
-  }
-  </style>

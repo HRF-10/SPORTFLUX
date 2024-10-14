@@ -16,9 +16,9 @@ export class HomePage implements AfterViewInit {
   public username: string;
   public imuData: any;
   public emgData: number;
-  public recordedData: any[] = []; // To store the recorded data
   public isConnected: boolean = false; // Track connection status
   private updateInterval: any; // Store the interval ID for clearing
+  private recordedData: any[] = []; // Declare recordedData
 
   constructor(
     private router: Router,
@@ -134,8 +134,11 @@ export class HomePage implements AfterViewInit {
         this.emgData = response.emg;
 
         this.api.setImuData(this.imuData);
+        this.api.setEmgData(this.emgData);
+        this.api.updateConnectionStatus(true);
+
         this.isConnected = true; // Set connection status to true
-        this.recordedData.push({ timestamp: new Date(), imuData: this.imuData, emgData: this.emgData }); // Start recording data
+        this.api.addRecordedData({ timestamp: new Date(), imuData: this.imuData, emgData: this.emgData });
 
         console.log('Terhubung ke Perangkat EMG:', this.imuData, this.emgData);
         this.showToast('Berhasil terhubung ke Perangkat EMG!');
@@ -147,7 +150,7 @@ export class HomePage implements AfterViewInit {
       }
     } catch (error) {
       console.error('Koneksi gagal:', error);
-      this.showToast('Gagal terhubung ke server API.');
+      this.showToast('Gagal terhubung ke server API. Silakan coba lagi.');
     }
   }
 
@@ -155,8 +158,34 @@ export class HomePage implements AfterViewInit {
     this.updateInterval = setInterval(async () => {
       try {
         const response: any = await this.http.get(dataUrl).toPromise();
+
+        // Perbarui data EMG
         this.emgData = response.emg;
 
+        // Perbarui data IMU
+        this.imuData = {
+          accelerometer: {
+            x: response.accx,
+            y: response.accy,
+            z: response.accz,
+          },
+          gyroscope: {
+            x: response.gyrox,
+            y: response.gyroy,
+            z: response.gyroz,
+          },
+          magnetometer: {
+            x: response.magx,
+            y: response.magy,
+            z: response.magz,
+          },
+        };
+
+        // Set data pada API
+        this.api.setImuData(this.imuData);
+        this.api.setEmgData(this.emgData);
+
+        // Update grafik EMG
         if (this.emgData) {
           const newAmplitude = this.emgData;
           this.chartData.push(newAmplitude);
@@ -175,35 +204,44 @@ export class HomePage implements AfterViewInit {
           this.emgChart.update();
         }
       } catch (error) {
-        console.error('Gagal mendapatkan data EMG:', error);
+        console.error('Gagal mendapatkan data:', error);
+        this.showToast('Gagal mendapatkan data IMU dan EMG. Silakan coba lagi.');
       }
     }, 1000);
   }
 
   async disconnectDevice() {
-    this.isConnected = false; // Set connection status to false
-    clearInterval(this.updateInterval); // Stop the data updates
-    this.recordedData = []; // Clear recorded data
-    this.chartData = []; // Clear chart data
-    this.timeLabels = []; // Clear time labels
-    this.emgData = 0; // Reset EMG data to 0
-    this.imuData = {
-      accelerometer: { x: 0, y: 0, z: 0 },
-      gyroscope: { x: 0, y: 0, z: 0 },
-      magnetometer: { x: 0, y: 0, z: 0 },
-    }; // Reset IMU data to 0
+    console.log('Mencoba untuk memutuskan koneksi...');
+    if (this.isConnected) {
+      this.isConnected = false;
+      this.api.updateConnectionStatus(false); // Set connection status to false
+      clearInterval(this.updateInterval); // Stop the data updates
+      this.api.clearRecordedData();
+      this.chartData = []; // Clear chart data
+      this.timeLabels = []; // Clear time labels
+      this.emgData = 0; // Reset EMG data to 0
+      this.imuData = {
+        accelerometer: { x: 0, y: 0, z: 0 },
+        gyroscope: { x: 0, y: 0, z: 0 },
+        magnetometer: { x: 0, y: 0, z: 0 },
+      }; // Reset IMU data to 0
 
-    // Reset the chart
-    this.emgChart.data.labels = this.timeLabels; // Reset chart labels
-    this.emgChart.data.datasets[0].data = this.chartData; // Reset chart data
-    this.emgChart.update(); // Update the chart
+      // Reset the chart
+      this.emgChart.data.labels = this.timeLabels; // Reset chart labels
+      this.emgChart.data.datasets[0].data = this.chartData; // Reset chart data
+      this.emgChart.update(); // Update the chart
 
-    this.showToast('Disconnected from device.');
+      this.showToast('Disconnected from device.');
+      console.log('Koneksi berhasil diputus.');
+    } else {
+      this.showToast('Device is not connected.');
+    }
   }
 
   // Download recorded data as CSV
   downloadData() {
-    const csvContent = this.convertToCSV(this.recordedData);
+    const recordedData = this.api.getRecordedData();
+    const csvContent = this.convertToCSV(recordedData);
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     const url = URL.createObjectURL(blob);
@@ -232,5 +270,17 @@ export class HomePage implements AfterViewInit {
       color: 'dark',
     });
     toast.present();
+  }
+
+  navigateToRecord() {
+    this.router.navigate(['/tabs/record']);
+  }
+
+  navigateToDevice() {
+    this.router.navigate(['/tabs/device']);
+  }
+
+  onLogout() {
+    this.api.signOut();
   }
 }

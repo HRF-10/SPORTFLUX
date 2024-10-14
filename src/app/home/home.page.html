@@ -159,22 +159,15 @@
   </div>
 
   <ion-card style="margin-top: 300px; z-index: 100; border-radius: 30px; background: rgba(2, 7, 14, 0.418); box-shadow: 5px 5px 10px #0b0b0b; display: flex; align-items: center; justify-content: center; height: 50px;">
-    <ion-button fill="clear" style="color: #fff;" (click)="connectToDevice()">
+    <ion-button fill="clear" style="color: #fff;" (click)="isConnected ? disconnectDevice() : connectToDevice()">
       {{ isConnected ? 'DISCONNECT DEVICE' : 'CONNECT TO DEVICE' }}
-    </ion-button>
-  </ion-card>
-
-  <!-- Add Download Data button here -->
-  <ion-card style="margin-top: 10px; z-index: 100; border-radius: 30px; background: rgba(2, 7, 14, 0.418); box-shadow: 5px 5px 10px #0b0b0b; display: flex; align-items: center; justify-content: center; height: 50px;">
-    <ion-button fill="clear" style="color: #fff;" (click)="downloadData()" [disabled]="!recordedData.length">
-      Download Data
     </ion-button>
   </ion-card>
 
   <ion-grid>
     <ion-row>
       <div
-        [routerLink]=""
+        [routerLink]="['/tabs/device-info']"
         style="
           overflow: scroll;
           box-shadow: 5px 5px 10px #0b0b0b;
@@ -196,7 +189,6 @@
         </ion-grid>
 
         <div
-          [routerLink]=""
           style="
             font-weight: bold;
             z-index: 120;

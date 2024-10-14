@@ -40,6 +40,7 @@ const routes: Routes = [
   { path: 'chat-room2', loadChildren: './chat-room2/chat-room2.module#ChatRoom2PageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'imu', loadChildren: './imu/imu.module#ImuPageModule' },
+  { path: 'device-info', loadChildren: './device-info/device-info.module#DeviceInfoPageModule' },
  
 ];
 

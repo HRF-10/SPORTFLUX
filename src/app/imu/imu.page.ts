@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { ApiService } from 'src/app/api/api.service'; // Import ApiService
+import { ApiService } from 'src/app/api/api.service';
 
-// Deklarasi THREE sebagai variabel global
 declare var THREE: any;
 
 @Component({

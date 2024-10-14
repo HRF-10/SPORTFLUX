@@ -28,7 +28,14 @@
 
         <div class="input-group">
           <p>Password</p>
-          <ion-input type="password" formControlName="password" placeholder="Your secret"></ion-input>
+          <ion-input 
+            [type]="showPassword ? 'text' : 'password'" 
+            formControlName="password" 
+            placeholder="your secret">
+          </ion-input>
+          <ion-checkbox slot="end" (ionChange)="toggleShowPassword()"></ion-checkbox>
+          <span *ngIf="showPassword">Hide Password</span>
+          <span *ngIf="!showPassword">Show Password</span>
           <mat-error *ngIf="registerForm.controls.password.hasError('required')">
             Please Enter <strong>Password</strong>
           </mat-error>
@@ -39,7 +46,14 @@
 
         <div class="input-group">
           <p>Confirm Password</p>
-          <ion-input type="password" formControlName="confirm_password" placeholder="Your secret"></ion-input>
+          <ion-input 
+            [type]="showPassword ? 'text' : 'password'" 
+            formControlName="confirm_password" 
+            placeholder="Your secret">
+          </ion-input>
+          <ion-checkbox slot="end" (ionChange)="toggleShowPassword()"></ion-checkbox>
+          <span *ngIf="showPassword">Hide Password</span>
+          <span *ngIf="!showPassword">Show Password</span>
           <mat-error *ngIf="registerForm.controls.confirm_password.hasError('required')">
             Please Confirm <strong>Password</strong>
           </mat-error>
@@ -47,6 +61,7 @@
             Both Passwords should <strong>Match</strong>
           </mat-error>
         </div>
+
 
         <div class="input-group">
           <p>Gender</p>
@@ -60,7 +75,7 @@
         </div>
 
         <div class="input-group">
-          <p>Lokasi</p>
+          <p>Location</p>
           <ion-select formControlName="city" placeholder="Select your location" style="background-color: #E0FFFF; border-radius: 30px;">
             <ion-select-option value="Jakarta">Jakarta</ion-select-option>
             <ion-select-option value="Makassar">Makassar</ion-select-option>
@@ -100,7 +115,7 @@
 
         <div class="input-group">
           <p>Upload File</p>
-          <input type="file" id="file" (change)="onFileSelected($event)">
+          <input type="file" (change)="onFileSelected($event)">
         </div>
 
         <button class="sign-btn" type="button" mat-raised-button (click)="register()" mat-color="primary" [disabled]="!registerForm.valid">
@@ -113,5 +128,5 @@
         </div>
       </form>
     </ion-card-content>
-  </ion-card>
+  </ion-card> 
 </ion-content>

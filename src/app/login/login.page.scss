@@ -1,12 +1,31 @@
-
-[size-md] {
-    width: 80%;
-}
-[height-sm]{
-    height: 2rem !important;
-}
-[size-sm] {
-    font-size: 0.8rem;
+.custom-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.6);
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
+.custom-input::placeholder {
+    color: #e2e2e2;
+}
 
+.custom-input:hover {
+    background: #fff;
+    transform: translateY(-2px); /* Efek sedikit mengangkat saat hover */
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    background: #002b3e;
+    color: white;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.3s ease; /* Transisi untuk efek hover */
+}
+
+.login-btn:hover {
+    background: #005f7f; /* Warna saat hover */
+    transform: translateY(-2px); /* Efek sedikit mengangkat saat hover */
+}

@@ -99,7 +99,7 @@
       >
         <div style="text-align: center;">
           <p style="font-weight: bold; color: white;">Device<br>Connected</p>
-          <p style="font-weight: bold; color: white;">20</p>
+          <p style="font-weight: bold; color: white;">1</p>
         </div>
       </div>
 
@@ -117,7 +117,7 @@
       >
         <div style="text-align: center;">
           <p style="font-weight: bold; color: white;">Data<br>Stream</p>
-          <p style="font-weight: bold; color: white;">20</p>
+          <p style="font-weight: bold; color: white;">1</p>
         </div>
       </div>
     </div>
@@ -186,10 +186,9 @@
       >
         <div style="color: white;">
           <p style="font-size: 22px; font-weight: bold; margin: 0;">A1</p>
-          <p style="margin: 5px 0;">Duration      : 00:05:01</p>
-          <p style="margin: 5px 0;">Datastream    : 2MB</p>
-          <p style="margin: 5px 0;">Battery level : 100%</p>
-          <p style="margin: 5px 0;">Status        : Active</p>
+          <p style="margin: 5px 0;">Duration : {{ formattedDuration }}</p>
+          <p style="margin: 5px 0;">Datastream : {{ datastreamSize }}MB</p>
+          <p style="margin: 5px 0;">Status : {{ deviceStatus }}</p>
           <div
             style="
               display: flex;
@@ -199,267 +198,6 @@
               margin-top: 10px;
             "
           >
-            <!-- Gambar baterai -->
-            <img
-              src="../../assets/master_file/battery_ijo.png"
-              alt="Battery Icon"
-              style="max-width: 95px; height: auto; margin-right: 10px;"
-            />
-
-            <!-- Gambar tambahan (contoh) -->
-            <img
-              src="../../assets/master_file/setting.png"
-              alt="Gambar Tambahan"
-              style="max-width: 95px; height: auto;"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-    
-    (click)="navigateToDiagnose()"
-      style="
-        display: flex;
-        border-radius: 20px;
-        background: rgb(0, 61, 103);
-        box-shadow: 5px 5px 10px #0b0b0b;
-        margin: 20px; /* Adjust margin for spacing */
-        height: auto;
-        justify-content: center;
-        width: calc(100% - 40px); /* Atur lebar mengisi kontainer dengan margin dikurangi */
-        max-width: 800px; /* Atur lebar maksimum jika perlu */
-      "
-    >
-      <div
-        style="
-          flex: 0 0 40%; /* Mengatur lebar 40% untuk sisi kiri */
-          height: auto;
-          border-top-left-radius: 18px;
-          border-bottom-left-radius: 18px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-size: cover; /* Cover untuk mengisi kontainer */
-          padding: 10px; /* Tambahkan padding untuk memberi ruang di dalam div */
-        "
-      >
-        <a href="/tabs/diagnose">
-          <img
-            src="../../assets/master_file/IM2.png"
-            alt="EMG Icon"
-            style="max-width: 130px; height: auto; transform: rotate(150deg);"
-          />
-        </a> 
-      </div>
-
-      <div
-        style="
-          flex: 0 0 60%; /* Mengatur lebar 60% untuk sisi kanan */
-          height: auto;
-          background-color: rgb(45, 109, 141);
-          border-top-right-radius: 18px;
-          border-bottom-right-radius: 18px;
-          display: flex;
-          align-items: center; /* Center vertically */
-          padding: 15px; /* Tambahkan padding untuk memberi ruang di dalam div */
-          margin-left: 5px; /* Small left margin for spacing */
-        "
-      >
-        <div style="color: white;">
-          <p style="font-size: 22px; font-weight: bold; margin: 0;">A2</p>
-          <p style="margin: 5px 0;">Duration      : 00:05:01</p>
-          <p style="margin: 5px 0;">Datastream    : 2MB</p>
-          <p style="margin: 5px 0;">Battery level : 100%</p>
-          <p style="margin: 5px 0;">Status        : Active</p>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              width: 120%;
-              justify-content: space-between;
-              margin-top: 10px;
-            "
-          >
-            <!-- Gambar baterai -->
-            <img
-              src="../../assets/master_file/batterymerah.png"
-              alt="Battery Icon"
-              style="max-width: 95px; height: auto; margin-right: 10px;"
-            />
-
-            <!-- Gambar tambahan (contoh) -->
-            <img
-              src="../../assets/master_file/setting.png"
-              alt="Gambar Tambahan"
-              style="max-width: 95px; height: auto;"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-    (click)="navigateToDiagnose()"
-      style="
-        display: flex;
-        border-radius: 20px;
-        background: rgb(0, 61, 103);
-        box-shadow: 5px 5px 10px #0b0b0b;
-        margin: 20px; /* Adjust margin for spacing */
-        height: auto;
-        justify-content: center;
-        width: calc(100% - 40px); /* Atur lebar mengisi kontainer dengan margin dikurangi */
-        max-width: 800px; /* Atur lebar maksimum jika perlu */
-      "
-    >
-    <div
-      (click)="navigateToDiagnose()"
-      style="
-        flex: 0 0 40%; /* Mengatur lebar 40% untuk sisi kiri */
-        height: auto;
-        border-top-left-radius: 18px;
-        border-bottom-left-radius: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-size: cover; /* Cover untuk mengisi kontainer */
-        padding: 10px; /* Tambahkan padding untuk memberi ruang di dalam div */
-        cursor: pointer; /* Ubah kursor saat hover */
-      "
-    >
-    <a href="/tabs/diagnose">
-      <img
-        src="../../assets/master_file/IM2.png"
-        alt="EMG Icon"
-        style="max-width: 130px; height: auto; transform: rotate(150deg);"
-      />
-    </a> 
-    </div>  
-
-      <div
-        style="
-          flex: 0 0 60%; /* Mengatur lebar 60% untuk sisi kanan */
-          height: auto;
-          background-color: rgb(45, 109, 141);
-          border-top-right-radius: 18px;
-          border-bottom-right-radius: 18px;
-          display: flex;
-          align-items: center; /* Center vertically */
-          padding: 15px; /* Tambahkan padding untuk memberi ruang di dalam div */
-          margin-left: 5px; /* Small left margin for spacing */
-        ">
-        <div style="color: white;">
-          <p style="font-size: 22px; font-weight: bold; margin: 0;">A3</p>
-          <p style="margin: 5px 0;">Duration      : 00:05:01</p>
-          <p style="margin: 5px 0;">Datastream    : 2MB</p>
-          <p style="margin: 5px 0;">Battery level : 100%</p>
-          <p style="margin: 5px 0;">Status        : Active</p>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              width: 120%;
-              justify-content: space-between;
-              margin-top: 10px;
-            "
-          >
-            <!-- Gambar baterai -->
-            <img
-              src="../../assets/master_file/battery_kuning.png"
-              alt="Battery Icon"
-              style="max-width: 95px; height: auto; margin-right: 10px;"
-            />
-
-            <!-- Gambar tambahan (contoh) -->
-            <img
-              src="../../assets/master_file/setting.png"
-              alt="Gambar Tambahan"
-              style="max-width: 95px; height: auto;"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-    (click)="navigateToDiagnose()"
-      style="
-        display: flex;
-        border-radius: 20px;
-        background: rgb(0, 61, 103);
-        box-shadow: 5px 5px 10px #0b0b0b;
-        margin: 20px; /* Adjust margin for spacing */
-        height: auto;
-        justify-content: center;
-        width: calc(100% - 40px); /* Atur lebar mengisi kontainer dengan margin dikurangi */
-        max-width: 800px; /* Atur lebar maksimum jika perlu */
-      "
-    >
-      <div
-        style="
-          flex: 0 0 40%; /* Mengatur lebar 40% untuk sisi kiri */
-          height: auto;
-          border-top-left-radius: 18px;
-          border-bottom-left-radius: 18px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-size: cover; /* Cover untuk mengisi kontainer */
-          padding: 10px; /* Tambahkan padding untuk memberi ruang di dalam div */
-        "
-      >
-        <a href="/tabs/diagnose">
-          <img
-            src="../../assets/master_file/IM2.png"
-            alt="EMG Icon"
-            style="max-width: 130px; height: auto; transform: rotate(150deg);"
-          />
-        </a> 
-      </div>
-
-      <div
-        style="
-          flex: 0 0 60%; /* Mengatur lebar 60% untuk sisi kanan */
-          height: auto;
-          background-color: rgb(45, 109, 141);
-          border-top-right-radius: 18px;
-          border-bottom-right-radius: 18px;
-          display: flex;
-          align-items: center; /* Center vertically */
-          padding: 15px; /* Tambahkan padding untuk memberi ruang di dalam div */
-          margin-left: 5px; /* Small left margin for spacing */
-        "
-      >
-        <div style="color: white;">
-          <p style="font-size: 22px; font-weight: bold; margin: 0;">A4</p>
-          <p style="margin: 5px 0;">Duration      : 00:05:01</p>
-          <p style="margin: 5px 0;">Datastream    : 2MB</p>
-          <p style="margin: 5px 0;">Battery level : 100%</p>
-          <p style="margin: 5px 0;">Status        : Active</p>
-          <div
-            style="
-              display: flex;
-              align-items: center;
-              width: 120%;
-              justify-content: space-between;
-              margin-top: 10px;
-            "
-          >
-            <!-- Gambar baterai -->
-            <img
-              src="../../assets/master_file/battery_ijo.png"
-              alt="Battery Icon"
-              style="max-width: 95px; height: auto; margin-right: 10px;"
-            />
-
-            <!-- Gambar tambahan (contoh) -->
-            <img
-              src="../../assets/master_file/setting.png"
-              alt="Gambar Tambahan"
-              style="max-width: 95px; height: auto;"
-            />
           </div>
         </div>
       </div>

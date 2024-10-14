@@ -10,6 +10,7 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  showPassword = false; // Properti untuk mengatur visibilitas password
   hide: boolean = true;
   c_hide: boolean = true;
   registerForm: FormGroup;
@@ -79,4 +80,8 @@ export class RegisterPage implements OnInit {
       this.registerForm.value['city']
     );
   }
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword; // Toggle nilai showPassword
+  }
 }

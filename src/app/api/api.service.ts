@@ -12,6 +12,7 @@ export class ApiService {
   user: any;
   db: any;
   public admin : any;
+  public isConnected: boolean = false;
   storage : any;
   logged : any;
   ida : any;
@@ -20,8 +21,9 @@ export class ApiService {
     gyroscope: { x: 0, y: 0, z: 0 },
     magnetometer: { x: 0, y: 0, z: 0 }
   };
+  private emgData: any;
+  private recordedData: any[] = [];
   
-
 
   constructor(
     private snack: SnackbarService,
@@ -308,8 +310,40 @@ export class ApiService {
     this.imuData = data;
   }
 
+  setEmgData(data: any) {
+    this.emgData = data;
+  }
+
   getImuData() {
     return this.imuData;
+  }
+
+  getEmgData() {
+    return this.emgData;
+  }
+
+  setRecordedData(data: any[]) {
+    this.recordedData = data;
+  }
+
+  getRecordedData(): any[] {
+    return this.recordedData;
+  }
+
+  addRecordedData(dataPoint: any) {
+    this.recordedData.push(dataPoint);
+  }
+
+  clearRecordedData() {
+    this.recordedData = [];
+  }
+
+  updateConnectionStatus(status: boolean) {
+    this.isConnected = status;
+  }
+
+  getConnectionStatus(): boolean { // Tambahkan metode untuk mendapatkan status koneksi
+    return this.isConnected;
   }
 
 }

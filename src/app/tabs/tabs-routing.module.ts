@@ -40,7 +40,8 @@ const routes: Routes = [
       },
      
       { path: "about", loadChildren: "../about/about.module#AboutPageModule" },
-      
+
+      { path: 'device-info', loadChildren: './device-info/device-info.module#DeviceInfoPageModule' },
       
       {
         path: "admin",
@@ -53,6 +54,10 @@ const routes: Routes = [
       {
         path: 'diagnose',
         loadChildren: () => import('../diagnose/diagnose.module').then( m => m.DiagnosePageModule)
+      },
+      {
+        path: 'device-info',
+        loadChildren: () => import('../device-info/device-info.module').then( m => m.DeviceInfoPageModule)
       },
       {
         path: 'login',

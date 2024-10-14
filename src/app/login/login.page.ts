@@ -10,6 +10,8 @@ import { ApiService } from 'src/app/api/api.service';
 export class LoginPage implements OnInit {
   hide: boolean = true;
   loginForm: FormGroup;
+  passwordType: string = 'password'; // Awalnya set ke 'password'
+
 
   constructor(public formBuilder: FormBuilder, public api: ApiService) {
 
@@ -34,4 +36,8 @@ export class LoginPage implements OnInit {
     this.api.loader = true;
     this.api.signin(this.loginForm.value['email'], this.loginForm.value['password']);
   }
+    // Fungsi untuk toggle visibility password
+    togglePasswordVisibility() {
+      this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
+    }
 }
