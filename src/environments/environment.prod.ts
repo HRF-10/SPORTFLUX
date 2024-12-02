@@ -1,12 +1,12 @@
 export const environment = {
 	production: true,
 	firebase: {
-	  apiKey: "AIzaSyCD7KCLIBO9uSwAn9QVBziMw0NfKINh6GM",
-	  authDomain: "niti-apps.firebaseapp.com",
-	  storageBucket: "niti-apps.appspot.com",
-	  messagingSenderId: "205144928763",
-	  appId: "1:205144928763:web:9425e33383de68a5e45b5e",
-	  databaseURL: "https://niti-apps-default-rtdb.firebaseio.com",
-	  projectId: "niti-apps",
+		apiKey: "AIzaSyDgj3U7A49hf5khL3pbEbjkt3x7PO3oKzY",
+		authDomain: "sportflux-9a807.firebaseapp.com",
+		projectId: "sportflux-9a807",
+		storageBucket: "sportflux-9a807.appspot.com",
+		messagingSenderId: "970649319566",
+		appId: "1:970649319566:web:aa9084f1a8338f142cf1df",
+		databaseURL: "https://sportflux-9a807-default-rtdb.asia-southeast1.firebasedatabase.app",
 	},
   };

@@ -35,11 +35,11 @@ export class DeviceInfoPage implements OnInit, AfterViewInit, OnDestroy {
 
   public imuData: any[] = [];
   public emg: number = 0;
+  public recordedData: any[] = [];
 
   private imuChart: any;
   private chartData: number[] = [];
   private timeLabels: number[] = [];
-  private recordedData: any[] = [];
 
   private scene: any;
   private camera: any;

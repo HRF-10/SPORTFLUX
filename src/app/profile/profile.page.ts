@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -17,35 +18,32 @@ export class ProfilePage implements OnInit {
   admin: string;
   isAdmin: boolean = false; // Default false
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.presentingElement = document.querySelector('.ion-page');
-    this.loadUserData(); // Memuat data pengguna
+    this.loadUserData();
   }
 
   loadUserData() {
-    // Ambil data pengguna dari localStorage
     const userData = JSON.parse(localStorage.getItem('users'));
 
     if (userData) {
-      this.username = userData.name || "User"; // Set nama pengguna, default "User"
-      this.photoURL = userData.photoURL || 'default-profile-image-url'; // Default gambar profil
-      this.waNumber = userData.wa || "No WA Number"; // Set nomor WA
-      this.gender = userData.gender || "Not Specified"; // Set gender
-      this.location = userData.location || "Unknown"; // Set lokasi
-      this.category = userData.category || "Not Specified"; // Set kategori
+      this.username = userData.name || "User";
+      this.photoURL = userData.photoURL || 'default-profile-image-url';
+      this.waNumber = userData.wa || "No WA Number";
+      this.gender = userData.gender || "Not Specified";
+      this.location = userData.location || "Unknown";
+      this.category = userData.category || "Not Specified";
 
-      // Cek apakah user adalah admin
       if (userData.admin == 1) {
         this.admin = "Admin";
         this.isAdmin = true;
       }
 
-      this.usersa = userData; // Simpan data pengguna
-      console.log(this.usersa); // Debugging
+      this.usersa = userData;
+      console.log(this.usersa);
     } else {
-      // Jika tidak ada data pengguna, set nilai default
       this.username = "User";
       this.photoURL = 'default-profile-image-url';
       this.waNumber = "No WA Number";
@@ -75,12 +73,15 @@ export class ProfilePage implements OnInit {
   }
 
   savePhotoToLocalStorage() {
-    // Update gambar di localStorage
     const userData = JSON.parse(localStorage.getItem('users'));
     if (userData) {
       userData.photoURL = this.photoURL;
       localStorage.setItem('users', JSON.stringify(userData));
     }
+  }
+
+  goBack() {
+    this.router.navigate(['..']); // Navigasi ke halaman sebelumnya
   }
   
 }
